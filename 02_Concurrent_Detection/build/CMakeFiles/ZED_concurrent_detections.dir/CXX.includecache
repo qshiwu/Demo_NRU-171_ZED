@@ -6,26 +6,6 @@
 
 #IncludeRegexTransform: 
 
-../include/GLViewer.hpp
-vector
--
-mutex
--
-sl/Camera.hpp
--
-GL/glew.h
--
-GL/freeglut.h
--
-cuda.h
--
-cuda_gl_interop.h
--
-opencv2/opencv.hpp
--
-utils.hpp
-../include/utils.hpp
-
 ../include/TrackingViewer.hpp
 iostream
 -
@@ -51,26 +31,6 @@ sl/Camera.hpp
 /home/nvidia/Desktop/Demo_NRU-171_ZED/02_Concurrent_Detection/src/TrackingViewer.cpp
 TrackingViewer.hpp
 /home/nvidia/Desktop/Demo_NRU-171_ZED/02_Concurrent_Detection/src/TrackingViewer.hpp
-
-/home/nvidia/Desktop/Demo_NRU-171_ZED/02_Concurrent_Detection/src/main.cpp
-iostream
--
-fstream
--
-sl/Camera.hpp
--
-GLViewer.hpp
-/home/nvidia/Desktop/Demo_NRU-171_ZED/02_Concurrent_Detection/src/GLViewer.hpp
-TrackingViewer.hpp
-/home/nvidia/Desktop/Demo_NRU-171_ZED/02_Concurrent_Detection/src/TrackingViewer.hpp
-iostream
--
-csignal
--
-cstdlib
--
-unistd.h
--
 
 /usr/include/opencv4/opencv2/calib3d.hpp
 opencv2/core.hpp
@@ -1291,14 +1251,6 @@ driver_types.h
 /usr/local/cuda-11.4/include/driver_types.h
 crt/host_defines.h
 /usr/local/cuda-11.4/include/crt/host_defines.h
-
-/usr/local/cuda-11.4/include/cuda_gl_interop.h
-cuda_runtime_api.h
-/usr/local/cuda-11.4/include/cuda_runtime_api.h
-OpenGL/gl.h
--
-GL/gl.h
--
 
 /usr/local/cuda-11.4/include/cuda_runtime.h
 crt/host_config.h

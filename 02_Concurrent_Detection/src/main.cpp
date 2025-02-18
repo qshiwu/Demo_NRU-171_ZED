@@ -165,6 +165,7 @@ int main(int argc, char **argv)
     sl::Resolution display_resolution(requested_low_res_w, requested_low_res_w / image_aspect_ratio);
     Resolution tracks_resolution(1000, display_resolution.height);
     // create a global image to store both image and tracks view
+    printf(">> %ld, %ld << \n", display_resolution.height, display_resolution.width + tracks_resolution.width );
     cv::Mat global_image(display_resolution.height, display_resolution.width + tracks_resolution.width, CV_8UC4, 1);
     // retrieve ref on image part
     auto image_left_ocv = global_image(cv::Rect(0, 0, display_resolution.width, display_resolution.height));
@@ -224,7 +225,8 @@ int main(int argc, char **argv)
             zed.retrieveImage(image_left, VIEW::LEFT, MEM::CPU, display_resolution);
             zed.retrieveMeasure(point_cloud, MEASURE::XYZRGBA, MEM::GPU, pc_resolution);
             image_render_left.copyTo(image_left_ocv);
-            render_2D(image_left_ocv, img_scale, objects, skeletons, true, body_tracking_parameters.enable_tracking);
+            // render_2D(image_left_ocv, img_scale, objects, skeletons, true, body_tracking_parameters.enable_tracking);
+            render_2D_Obj(image_left_ocv, img_scale, objects, true, body_tracking_parameters.enable_tracking);
 
             zed.getPosition(cam_w_pose, REFERENCE_FRAME::WORLD);
             // viewer.updateData(point_cloud, objects, skeletons, cam_w_pose.pose_data);

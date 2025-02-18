@@ -22,6 +22,7 @@ inline sl::float2 getImagePosition(std::vector<sl::uint2> &bounding_box_image, s
 }
 
 void render_2D(cv::Mat &left, sl::float2 img_scale, sl::Objects &objects, sl::Bodies &bodies, bool render_mask = false, bool isTrackingON = false);
+void render_2D_Obj(cv::Mat &left, sl::float2 img_scale, sl::Objects &objects, bool render_mask = false, bool isTrackingON = false);
 
 
 // -------------------------------------------------

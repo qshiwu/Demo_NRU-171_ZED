@@ -91,6 +91,25 @@ void draw(std::vector<sl::uint2> &bb, sl::Mat &mask, float z, int id, sl::OBJECT
     }
 }
 
+void render_2D_Obj(cv::Mat &left_display, sl::float2 img_scale, sl::Objects &objects, bool render_mask, bool isTrackingON)
+{
+    cv::Mat overlay = left_display.clone();
+    cv::Rect roi_render(0, 0, left_display.size().width, left_display.size().height);
+
+    //// "We only focus on the person, which is a must-have for the exposition."
+
+    for (auto &obj : objects.object_list)
+    {
+        if (canRender(obj.tracking_state, isTrackingON))
+            draw(obj.bounding_box_2d, obj.mask, obj.position.z, obj.id, obj.label, left_display, overlay, img_scale);
+    }
+    
+    // Here, overlay is as the left image, but with opaque masks on each detected objects
+    cv::addWeighted(left_display, 0.7, overlay, 0.3, 0.0, left_display);
+}
+
+
+
 void render_2D(cv::Mat &left_display, sl::float2 img_scale, sl::Objects &objects, sl::Bodies &bodies, bool render_mask, bool isTrackingON)
 {
     cv::Mat overlay = left_display.clone();

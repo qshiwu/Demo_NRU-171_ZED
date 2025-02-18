@@ -9,7 +9,7 @@ inline cv::Point2f cvt(T pt, sl::float2 scale)
     return cv::Point2f(pt.x * scale.x, pt.y * scale.y);
 }
 
-void drawCenteredText(cv::Mat& img, const std::string& text, cv::Point position, int fontFace, double fontScale, cv::Scalar color, int thickness) {
+void drawCenteredTextHigher(cv::Mat& img, const std::string& text, cv::Point position, int fontFace, double fontScale, cv::Scalar color, int thickness) {
     int baseline = 0;
 
     // Get text size
@@ -17,7 +17,22 @@ void drawCenteredText(cv::Mat& img, const std::string& text, cv::Point position,
 
     // Calculate new x-coordinate to center the text
     int x = position.x - (textSize.width / 2);
-    int y = position.y + (textSize.height / 2); // Adjust for baseline shift
+    int y = position.y + (textSize.height /2); // Adjust for baseline shift
+
+    // Draw the text
+    cv::putText(img, text, cv::Point(x, y), fontFace, fontScale, color, thickness);
+}
+
+
+void drawCenteredTextLower(cv::Mat& img, const std::string& text, cv::Point position, int fontFace, double fontScale, cv::Scalar color, int thickness) {
+    int baseline = 0;
+
+    // Get text size
+    cv::Size textSize = cv::getTextSize(text, fontFace, fontScale, thickness, &baseline);
+
+    // Calculate new x-coordinate to center the text
+    int x = position.x - (textSize.width / 2);
+    int y = position.y + (textSize.height); // Adjust for baseline shift
 
     // Draw the text
     cv::putText(img, text, cv::Point(x, y), fontFace, fontScale, color, thickness);
@@ -59,7 +74,7 @@ void draw(std::vector<sl::uint2> &bb, sl::Mat &mask, float z, int id, sl::OBJECT
         overlay(roi).setTo(base_color);
 
     auto position_image = getImagePosition(bb, img_scale);
-    putText(left_display, toString(label).get(), cv::Point2d(position_image.x - 20, position_image.y - 12), cv::FONT_HERSHEY_COMPLEX_SMALL, 0.5, cv::Scalar(255, 255, 255, 255), 1);
+    drawCenteredTextLower(left_display, toString(label).get(), cv::Point2d(position_image.x, position_image.y + 36), cv::FONT_HERSHEY_SIMPLEX, 1, cv::Scalar(255, 255, 255, 255), 2);
 
     if (std::isfinite(z))
     {
@@ -68,8 +83,8 @@ void draw(std::vector<sl::uint2> &bb, sl::Mat &mask, float z, int id, sl::OBJECT
         // putText(left_display, text, cv::Point2d(position_image.x - 20, position_image.y),
         //     cv::FONT_HERSHEY_COMPLEX_SMALL, 0.5, cv::Scalar(255, 255, 255, 255), 1);
 
-        double font_scale = 1.0;
-        drawCenteredText(left_display, text, cv::Point2d(position_image.x, position_image.y),
+        double font_scale = 2.0;
+        drawCenteredTextHigher(left_display, text, cv::Point2d(position_image.x, position_image.y),
         cv::FONT_HERSHEY_SIMPLEX, font_scale, cv::Scalar(255, 255, 255, 255), 3);
 
         

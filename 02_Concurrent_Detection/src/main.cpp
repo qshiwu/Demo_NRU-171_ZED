@@ -156,8 +156,7 @@ int main(int argc, char **argv)
     // default detection threshold, apply to all object class
     int body_detection_confidence = 60;
     BodyTrackingRuntimeParameters body_tracking_parameters_rt(body_detection_confidence);
-    // // Detection output
-    // bool quit = false;
+    
 
 #if ENABLE_GUI
 
@@ -180,10 +179,10 @@ int main(int argc, char **argv)
     TrackingViewer track_view_generator(tracks_resolution, camera_config.fps, init_parameters.depth_maximum_distance, 3);
     track_view_generator.setCameraCalibration(camera_config.calibration_parameters);
 
-    string window_name = "ZED x Neousys | 2D View and Birds view";
+    string window_name = "| ZED x Neousys |";
     cv::namedWindow(window_name, cv::WINDOW_NORMAL); // Create Window
-    // cv::createTrackbar("Confidence OD", window_name, &detection_confidence_od, 100);
-    // cv::createTrackbar("Confidence Body", window_name, &body_detection_confidence, 100);
+    cv::createTrackbar("Confidence OD", window_name, &detection_confidence_od, 100);
+    cv::createTrackbar("Confidence Body", window_name, &body_detection_confidence, 100);
 
     char key = ' ';
 

@@ -106,9 +106,9 @@ int main(int argc, char **argv)
     print("Skeleton Detection: Loading Module...");
     // Define the Objects detection module parameters
     BodyTrackingParameters body_tracking_parameters;
-    body_tracking_parameters.enable_tracking = true;
-    body_tracking_parameters.enable_segmentation = true; // designed to give person pixel mask
-    body_tracking_parameters.detection_model = BODY_TRACKING_MODEL::HUMAN_BODY_ACCURATE;
+    body_tracking_parameters.enable_tracking = false;
+    body_tracking_parameters.enable_segmentation = false; // designed to give person pixel mask
+    body_tracking_parameters.detection_model = BODY_TRACKING_MODEL::HUMAN_BODY_FAST;
     
     // body_tracking_parameters.detection_model = BODY_TRACKING_MODEL::HUMAN_BODY_MEDIUM;
     // body_tracking_parameters.detection_model = BODY_TRACKING_MODEL::HUMAN_BODY_FAST;
@@ -181,8 +181,8 @@ int main(int argc, char **argv)
 
     string window_name = "| ZED x Neousys |";
     cv::namedWindow(window_name, cv::WINDOW_NORMAL); // Create Window
-    cv::createTrackbar("Confidence OD", window_name, &detection_confidence_od, 100);
-    cv::createTrackbar("Confidence Body", window_name, &body_detection_confidence, 100);
+    // cv::createTrackbar("Confidence OD", window_name, &detection_confidence_od, 100);
+    // cv::createTrackbar("Confidence Body", window_name, &body_detection_confidence, 100);
 
     char key = ' ';
 

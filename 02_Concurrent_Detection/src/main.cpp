@@ -123,28 +123,34 @@ int main(int argc, char **argv)
         return EXIT_FAILURE;
     }
 
-    //// Object model
-    // ObjectDetectionParameters object_detection_parameters;
-    // object_detection_parameters.enable_tracking = true;
-    // object_detection_parameters.enable_segmentation = false; // designed to give person pixel mask
-    // object_detection_parameters.detection_model = OBJECT_DETECTION_MODEL::MULTI_CLASS_BOX_FAST;
-    // object_detection_parameters.instance_module_id = 1; // select instance ID
+    // Object model
+    ObjectDetectionParameters object_detection_parameters;
+    object_detection_parameters.enable_tracking = true;
+    object_detection_parameters.enable_segmentation = true; // designed to give person pixel mask
+    object_detection_parameters.detection_model = OBJECT_DETECTION_MODEL::MULTI_CLASS_BOX_ACCURATE;
+    
+    object_detection_parameters.instance_module_id = 1; // select instance ID
 
-    // print("Object Detection: Loading Module...");
-    // returned_state = zed.enableObjectDetection(object_detection_parameters);
-    // if (returned_state != ERROR_CODE::SUCCESS)
-    // {
-    //     print("enableObjectDetection", returned_state, "\nExit program.");
-    //     zed.close();
-    //     return EXIT_FAILURE;
-    // }
+    print("Object Detection: Loading Module...");
+    returned_state = zed.enableObjectDetection(object_detection_parameters);
+    if (returned_state != ERROR_CODE::SUCCESS)
+    {
+        print("enableObjectDetection", returned_state, "\nExit program.");
+        zed.close();
+        return EXIT_FAILURE;
+    }
 
-    // // Detection runtime parameters
-    // int detection_confidence_od = 20;
-    // ObjectDetectionRuntimeParameters detection_parameters_rt(detection_confidence_od);
-    // // To select a set of specific object classes:
+    // Detection runtime parameters
+    int detection_confidence_od = 20;
+    ObjectDetectionRuntimeParameters detection_parameters_rt(detection_confidence_od);
+    
+    // focus on person
+    // To select a set of specific object classes:
     // detection_parameters_rt.object_class_filter = {OBJECT_CLASS::ELECTRONICS, OBJECT_CLASS::SPORT,
     //                                                OBJECT_CLASS::ANIMAL, OBJECT_CLASS::BAG, OBJECT_CLASS::VEHICLE, OBJECT_CLASS::FRUIT_VEGETABLE};
+
+    detection_parameters_rt.object_class_filter = {OBJECT_CLASS::PERSON};
+
 
     // Detection runtime parameters
     // default detection threshold, apply to all object class
@@ -209,8 +215,8 @@ int main(int argc, char **argv)
         auto grab_state = zed.grab(runtime_parameters);
         if (grab_state == ERROR_CODE::SUCCESS)
         {
-            // detection_parameters_rt.detection_confidence_threshold = detection_confidence_od;
-            // returned_state = zed.retrieveObjects(objects, detection_parameters_rt, object_detection_parameters.instance_module_id);
+            detection_parameters_rt.detection_confidence_threshold = detection_confidence_od;
+            returned_state = zed.retrieveObjects(objects, detection_parameters_rt, object_detection_parameters.instance_module_id);
 
             body_tracking_parameters_rt.detection_confidence_threshold = body_detection_confidence;
             returned_state = zed.retrieveBodies(skeletons, body_tracking_parameters_rt, body_tracking_parameters.instance_module_id);

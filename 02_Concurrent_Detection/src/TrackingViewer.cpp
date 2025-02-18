@@ -96,17 +96,19 @@ void render_2D(cv::Mat &left_display, sl::float2 img_scale, sl::Objects &objects
     cv::Mat overlay = left_display.clone();
     cv::Rect roi_render(0, 0, left_display.size().width, left_display.size().height);
 
+    //// "We only focus on the person, which is a must-have for the exposition."
+
     for (auto &obj : objects.object_list)
     {
         if (canRender(obj.tracking_state, isTrackingON))
             draw(obj.bounding_box_2d, obj.mask, obj.position.z, obj.id, obj.label, left_display, overlay, img_scale);
     }
 
-    for (auto &body : bodies.body_list)
-    {
-        if (canRender(body.tracking_state, isTrackingON))
-            draw(body.bounding_box_2d, body.mask, body.position.z, body.id, sl::OBJECT_CLASS::PERSON, left_display, overlay, img_scale);
-    }
+    // for (auto &body : bodies.body_list)
+    // {
+    //     if (canRender(body.tracking_state, isTrackingON))
+    //         draw(body.bounding_box_2d, body.mask, body.position.z, body.id, sl::OBJECT_CLASS::PERSON, left_display, overlay, img_scale);
+    // }
 
     // Here, overlay is as the left image, but with opaque masks on each detected objects
     cv::addWeighted(left_display, 0.7, overlay, 0.3, 0.0, left_display);

@@ -159,7 +159,8 @@ int main(int argc, char **argv)
 #if ENABLE_GUI
 
     float image_aspect_ratio = camera_config.resolution.width / (1.f * camera_config.resolution.height);
-    int requested_low_res_w = min(1280, (int)camera_config.resolution.width);
+    // int requested_low_res_w = min(1280, (int)camera_config.resolution.width);
+    int requested_low_res_w = 1920;
     sl::Resolution display_resolution(requested_low_res_w, requested_low_res_w / image_aspect_ratio);
 
     // Resolution tracks_resolution(1000, display_resolution.height);
@@ -170,7 +171,7 @@ int main(int argc, char **argv)
 
     // create a global image to store both image and tracks view
 
-    cv::Mat global_image(display_resolution.height, display_resolution.width + tracks_resolution.width, CV_8UC4, 1);
+    cv::Mat global_image(display_resolution.height, display_resolution.width, CV_8UC4, 1);
     // printf(">> %ld, %ld << \n", display_resolution.height, display_resolution.width + tracks_resolution.width);
     // retrieve ref on image part
     auto image_left_ocv = global_image(cv::Rect(0, 0, display_resolution.width, display_resolution.height));

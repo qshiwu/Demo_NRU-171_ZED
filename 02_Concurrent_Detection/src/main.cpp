@@ -39,7 +39,7 @@
 
 // Sample includes
 #if ENABLE_GUI
-#include "GLViewer.hpp" // disable this for NRU-170-PPC demo
+// #include "GLViewer.hpp" // disable this for NRU-170-PPC demo
 #include "TrackingViewer.hpp"
 #endif
 
@@ -141,7 +141,7 @@ int main(int argc, char **argv)
     }
 
     // Detection runtime parameters
-    int detection_confidence_od = 60;
+    int detection_confidence_od = 50;
     ObjectDetectionRuntimeParameters detection_parameters_rt(detection_confidence_od);
 
     // focus on person
@@ -182,9 +182,17 @@ int main(int argc, char **argv)
     TrackingViewer track_view_generator(tracks_resolution, camera_config.fps, init_parameters.depth_maximum_distance, 3);
     track_view_generator.setCameraCalibration(camera_config.calibration_parameters);
 
-    string window_name = "| ZED x Neousys |";
-    cv::namedWindow(window_name, cv::WINDOW_NORMAL); // Create Window
+    string window_name = "| Stereolabs x Neousys |";
+    // cv::namedWindow(window_name, cv::WINDOW_NORMAL); // Create Window
+    cv::namedWindow(window_name, cv::WINDOW_FULLSCREEN); // Create Window
     cv::setWindowProperty(window_name, cv::WND_PROP_FULLSCREEN, cv::WINDOW_FULLSCREEN);
+    
+    // Get screen resolution (Platform-specific method)
+    // int screenWidth = 1920; // Example, change accordingly
+    // int screenHeight = 1080;
+    
+    // // Set window width to max
+    // cv::resizeWindow(window_name, screenWidth, screenHeight);
 
     // cv::resizeWindow(window_name, 2386, 834);
 
@@ -250,16 +258,14 @@ int main(int argc, char **argv)
         // gl_viewer_available = viewer.isAvailable();
         //  as image_left_ocv and image_track_ocv are both ref of global_image, no need to update it
         cv::imshow(window_name, global_image);
-        key = cv::waitKey(5);
-        // if (key == 'i')
-        // {
-        //     track_view_generator.zoomIn();
-        // }
-        // else if (key == 'o')
-        // {
-        //     track_view_generator.zoomOut();
-        // }
+        cv::resizeWindow(window_name, 800, 600);
+
+
+         // Get window width and height
         
+        key = cv::waitKey(5);
+        
+        // key == 27 means ESC
         if (key == 'q' || key == 27)
         {
             quit = true;

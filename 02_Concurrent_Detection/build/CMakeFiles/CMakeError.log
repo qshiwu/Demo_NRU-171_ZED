@@ -1,40 +1,40 @@
 Determining if the function sgemm_ exists failed with the following output:
 Change Dir: /home/nvidia/Desktop/Demo_NRU-171_ZED/02_Concurrent_Detection/build/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/usr/bin/make cmTC_9083e/fast && /usr/bin/make -f CMakeFiles/cmTC_9083e.dir/build.make CMakeFiles/cmTC_9083e.dir/build
+Run Build Command(s):/usr/bin/make cmTC_67fca/fast && /usr/bin/make -f CMakeFiles/cmTC_67fca.dir/build.make CMakeFiles/cmTC_67fca.dir/build
 make[1]: Entering directory '/home/nvidia/Desktop/Demo_NRU-171_ZED/02_Concurrent_Detection/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_9083e.dir/CheckFunctionExists.c.o
-/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=sgemm_   -o CMakeFiles/cmTC_9083e.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.16/Modules/CheckFunctionExists.c
-Linking C executable cmTC_9083e
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_9083e.dir/link.txt --verbose=1
-/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=sgemm_    CMakeFiles/cmTC_9083e.dir/CheckFunctionExists.c.o  -o cmTC_9083e 
-/usr/bin/ld: CMakeFiles/cmTC_9083e.dir/CheckFunctionExists.c.o: in function `main':
+Building C object CMakeFiles/cmTC_67fca.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=sgemm_   -o CMakeFiles/cmTC_67fca.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.16/Modules/CheckFunctionExists.c
+Linking C executable cmTC_67fca
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_67fca.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=sgemm_    CMakeFiles/cmTC_67fca.dir/CheckFunctionExists.c.o  -o cmTC_67fca 
+/usr/bin/ld: CMakeFiles/cmTC_67fca.dir/CheckFunctionExists.c.o: in function `main':
 CheckFunctionExists.c:(.text+0x10): undefined reference to `sgemm_'
 collect2: error: ld returned 1 exit status
-make[1]: *** [CMakeFiles/cmTC_9083e.dir/build.make:87: cmTC_9083e] Error 1
+make[1]: *** [CMakeFiles/cmTC_67fca.dir/build.make:87: cmTC_67fca] Error 1
 make[1]: Leaving directory '/home/nvidia/Desktop/Demo_NRU-171_ZED/02_Concurrent_Detection/build/CMakeFiles/CMakeTmp'
-make: *** [Makefile:121: cmTC_9083e/fast] Error 2
+make: *** [Makefile:121: cmTC_67fca/fast] Error 2
 
 
 
 Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
 Change Dir: /home/nvidia/Desktop/Demo_NRU-171_ZED/02_Concurrent_Detection/build/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/usr/bin/make cmTC_19d6e/fast && /usr/bin/make -f CMakeFiles/cmTC_19d6e.dir/build.make CMakeFiles/cmTC_19d6e.dir/build
+Run Build Command(s):/usr/bin/make cmTC_55103/fast && /usr/bin/make -f CMakeFiles/cmTC_55103.dir/build.make CMakeFiles/cmTC_55103.dir/build
 make[1]: Entering directory '/home/nvidia/Desktop/Demo_NRU-171_ZED/02_Concurrent_Detection/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_19d6e.dir/src.c.o
-/usr/bin/cc   -DCMAKE_HAVE_LIBC_PTHREAD   -o CMakeFiles/cmTC_19d6e.dir/src.c.o   -c /home/nvidia/Desktop/Demo_NRU-171_ZED/02_Concurrent_Detection/build/CMakeFiles/CMakeTmp/src.c
-Linking C executable cmTC_19d6e
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_19d6e.dir/link.txt --verbose=1
-/usr/bin/cc  -DCMAKE_HAVE_LIBC_PTHREAD    CMakeFiles/cmTC_19d6e.dir/src.c.o  -o cmTC_19d6e 
-/usr/bin/ld: CMakeFiles/cmTC_19d6e.dir/src.c.o: in function `main':
+Building C object CMakeFiles/cmTC_55103.dir/src.c.o
+/usr/bin/cc   -DCMAKE_HAVE_LIBC_PTHREAD   -o CMakeFiles/cmTC_55103.dir/src.c.o   -c /home/nvidia/Desktop/Demo_NRU-171_ZED/02_Concurrent_Detection/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_55103
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_55103.dir/link.txt --verbose=1
+/usr/bin/cc  -DCMAKE_HAVE_LIBC_PTHREAD    CMakeFiles/cmTC_55103.dir/src.c.o  -o cmTC_55103 
+/usr/bin/ld: CMakeFiles/cmTC_55103.dir/src.c.o: in function `main':
 src.c:(.text+0x48): undefined reference to `pthread_create'
 /usr/bin/ld: src.c:(.text+0x50): undefined reference to `pthread_detach'
 /usr/bin/ld: src.c:(.text+0x5c): undefined reference to `pthread_join'
 collect2: error: ld returned 1 exit status
-make[1]: *** [CMakeFiles/cmTC_19d6e.dir/build.make:87: cmTC_19d6e] Error 1
+make[1]: *** [CMakeFiles/cmTC_55103.dir/build.make:87: cmTC_55103] Error 1
 make[1]: Leaving directory '/home/nvidia/Desktop/Demo_NRU-171_ZED/02_Concurrent_Detection/build/CMakeFiles/CMakeTmp'
-make: *** [Makefile:121: cmTC_19d6e/fast] Error 2
+make: *** [Makefile:121: cmTC_55103/fast] Error 2
 
 
 Source file was:
@@ -60,18 +60,18 @@ int main(void)
 Determining if the function pthread_create exists in the pthreads failed with the following output:
 Change Dir: /home/nvidia/Desktop/Demo_NRU-171_ZED/02_Concurrent_Detection/build/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/usr/bin/make cmTC_80aad/fast && /usr/bin/make -f CMakeFiles/cmTC_80aad.dir/build.make CMakeFiles/cmTC_80aad.dir/build
+Run Build Command(s):/usr/bin/make cmTC_88393/fast && /usr/bin/make -f CMakeFiles/cmTC_88393.dir/build.make CMakeFiles/cmTC_88393.dir/build
 make[1]: Entering directory '/home/nvidia/Desktop/Demo_NRU-171_ZED/02_Concurrent_Detection/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_80aad.dir/CheckFunctionExists.c.o
-/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_80aad.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.16/Modules/CheckFunctionExists.c
-Linking C executable cmTC_80aad
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_80aad.dir/link.txt --verbose=1
-/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_80aad.dir/CheckFunctionExists.c.o  -o cmTC_80aad  -lpthreads 
+Building C object CMakeFiles/cmTC_88393.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_88393.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.16/Modules/CheckFunctionExists.c
+Linking C executable cmTC_88393
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_88393.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_88393.dir/CheckFunctionExists.c.o  -o cmTC_88393  -lpthreads 
 /usr/bin/ld: cannot find -lpthreads
 collect2: error: ld returned 1 exit status
-make[1]: *** [CMakeFiles/cmTC_80aad.dir/build.make:87: cmTC_80aad] Error 1
+make[1]: *** [CMakeFiles/cmTC_88393.dir/build.make:87: cmTC_88393] Error 1
 make[1]: Leaving directory '/home/nvidia/Desktop/Demo_NRU-171_ZED/02_Concurrent_Detection/build/CMakeFiles/CMakeTmp'
-make: *** [Makefile:121: cmTC_80aad/fast] Error 2
+make: *** [Makefile:121: cmTC_88393/fast] Error 2
 
 
 

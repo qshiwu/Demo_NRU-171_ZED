@@ -74,12 +74,12 @@ clean: CMakeFiles/ZED_concurrent_detections.dir/clean
 CMakeFiles/ZED_concurrent_detections.dir/all:
 	$(MAKE) -f CMakeFiles/ZED_concurrent_detections.dir/build.make CMakeFiles/ZED_concurrent_detections.dir/depend
 	$(MAKE) -f CMakeFiles/ZED_concurrent_detections.dir/build.make CMakeFiles/ZED_concurrent_detections.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/nvidia/Desktop/Demo_NRU-171_ZED/02_Concurrent_Detection/build/CMakeFiles --progress-num=1,2,3,4 "Built target ZED_concurrent_detections"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/nvidia/Desktop/Demo_NRU-171_ZED/02_Concurrent_Detection/build/CMakeFiles --progress-num=1,2,3 "Built target ZED_concurrent_detections"
 .PHONY : CMakeFiles/ZED_concurrent_detections.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/ZED_concurrent_detections.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/nvidia/Desktop/Demo_NRU-171_ZED/02_Concurrent_Detection/build/CMakeFiles 4
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/nvidia/Desktop/Demo_NRU-171_ZED/02_Concurrent_Detection/build/CMakeFiles 3
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/ZED_concurrent_detections.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/nvidia/Desktop/Demo_NRU-171_ZED/02_Concurrent_Detection/build/CMakeFiles 0
 .PHONY : CMakeFiles/ZED_concurrent_detections.dir/rule

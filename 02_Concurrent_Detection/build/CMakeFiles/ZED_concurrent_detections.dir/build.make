@@ -57,22 +57,9 @@ include CMakeFiles/ZED_concurrent_detections.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/ZED_concurrent_detections.dir/flags.make
 
-CMakeFiles/ZED_concurrent_detections.dir/src/GLViewer.cpp.o: CMakeFiles/ZED_concurrent_detections.dir/flags.make
-CMakeFiles/ZED_concurrent_detections.dir/src/GLViewer.cpp.o: ../src/GLViewer.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nvidia/Desktop/Demo_NRU-171_ZED/02_Concurrent_Detection/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/ZED_concurrent_detections.dir/src/GLViewer.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ZED_concurrent_detections.dir/src/GLViewer.cpp.o -c /home/nvidia/Desktop/Demo_NRU-171_ZED/02_Concurrent_Detection/src/GLViewer.cpp
-
-CMakeFiles/ZED_concurrent_detections.dir/src/GLViewer.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ZED_concurrent_detections.dir/src/GLViewer.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nvidia/Desktop/Demo_NRU-171_ZED/02_Concurrent_Detection/src/GLViewer.cpp > CMakeFiles/ZED_concurrent_detections.dir/src/GLViewer.cpp.i
-
-CMakeFiles/ZED_concurrent_detections.dir/src/GLViewer.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ZED_concurrent_detections.dir/src/GLViewer.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nvidia/Desktop/Demo_NRU-171_ZED/02_Concurrent_Detection/src/GLViewer.cpp -o CMakeFiles/ZED_concurrent_detections.dir/src/GLViewer.cpp.s
-
 CMakeFiles/ZED_concurrent_detections.dir/src/TrackingViewer.cpp.o: CMakeFiles/ZED_concurrent_detections.dir/flags.make
 CMakeFiles/ZED_concurrent_detections.dir/src/TrackingViewer.cpp.o: ../src/TrackingViewer.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nvidia/Desktop/Demo_NRU-171_ZED/02_Concurrent_Detection/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/ZED_concurrent_detections.dir/src/TrackingViewer.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nvidia/Desktop/Demo_NRU-171_ZED/02_Concurrent_Detection/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/ZED_concurrent_detections.dir/src/TrackingViewer.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ZED_concurrent_detections.dir/src/TrackingViewer.cpp.o -c /home/nvidia/Desktop/Demo_NRU-171_ZED/02_Concurrent_Detection/src/TrackingViewer.cpp
 
 CMakeFiles/ZED_concurrent_detections.dir/src/TrackingViewer.cpp.i: cmake_force
@@ -85,7 +72,7 @@ CMakeFiles/ZED_concurrent_detections.dir/src/TrackingViewer.cpp.s: cmake_force
 
 CMakeFiles/ZED_concurrent_detections.dir/src/main.cpp.o: CMakeFiles/ZED_concurrent_detections.dir/flags.make
 CMakeFiles/ZED_concurrent_detections.dir/src/main.cpp.o: ../src/main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nvidia/Desktop/Demo_NRU-171_ZED/02_Concurrent_Detection/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/ZED_concurrent_detections.dir/src/main.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/nvidia/Desktop/Demo_NRU-171_ZED/02_Concurrent_Detection/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/ZED_concurrent_detections.dir/src/main.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ZED_concurrent_detections.dir/src/main.cpp.o -c /home/nvidia/Desktop/Demo_NRU-171_ZED/02_Concurrent_Detection/src/main.cpp
 
 CMakeFiles/ZED_concurrent_detections.dir/src/main.cpp.i: cmake_force
@@ -98,14 +85,12 @@ CMakeFiles/ZED_concurrent_detections.dir/src/main.cpp.s: cmake_force
 
 # Object files for target ZED_concurrent_detections
 ZED_concurrent_detections_OBJECTS = \
-"CMakeFiles/ZED_concurrent_detections.dir/src/GLViewer.cpp.o" \
 "CMakeFiles/ZED_concurrent_detections.dir/src/TrackingViewer.cpp.o" \
 "CMakeFiles/ZED_concurrent_detections.dir/src/main.cpp.o"
 
 # External object files for target ZED_concurrent_detections
 ZED_concurrent_detections_EXTERNAL_OBJECTS =
 
-ZED_concurrent_detections: CMakeFiles/ZED_concurrent_detections.dir/src/GLViewer.cpp.o
 ZED_concurrent_detections: CMakeFiles/ZED_concurrent_detections.dir/src/TrackingViewer.cpp.o
 ZED_concurrent_detections: CMakeFiles/ZED_concurrent_detections.dir/src/main.cpp.o
 ZED_concurrent_detections: CMakeFiles/ZED_concurrent_detections.dir/build.make
@@ -135,7 +120,7 @@ ZED_concurrent_detections: /usr/lib/aarch64-linux-gnu/libopencv_flann.so.4.5.4
 ZED_concurrent_detections: /usr/lib/aarch64-linux-gnu/libopencv_imgproc.so.4.5.4
 ZED_concurrent_detections: /usr/lib/aarch64-linux-gnu/libopencv_core.so.4.5.4
 ZED_concurrent_detections: CMakeFiles/ZED_concurrent_detections.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/nvidia/Desktop/Demo_NRU-171_ZED/02_Concurrent_Detection/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable ZED_concurrent_detections"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/nvidia/Desktop/Demo_NRU-171_ZED/02_Concurrent_Detection/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable ZED_concurrent_detections"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/ZED_concurrent_detections.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

@@ -123,33 +123,6 @@ ZED_concurrent_detections/fast:
 	$(MAKE) -f CMakeFiles/ZED_concurrent_detections.dir/build.make CMakeFiles/ZED_concurrent_detections.dir/build
 .PHONY : ZED_concurrent_detections/fast
 
-src/GLViewer.o: src/GLViewer.cpp.o
-
-.PHONY : src/GLViewer.o
-
-# target to build an object file
-src/GLViewer.cpp.o:
-	$(MAKE) -f CMakeFiles/ZED_concurrent_detections.dir/build.make CMakeFiles/ZED_concurrent_detections.dir/src/GLViewer.cpp.o
-.PHONY : src/GLViewer.cpp.o
-
-src/GLViewer.i: src/GLViewer.cpp.i
-
-.PHONY : src/GLViewer.i
-
-# target to preprocess a source file
-src/GLViewer.cpp.i:
-	$(MAKE) -f CMakeFiles/ZED_concurrent_detections.dir/build.make CMakeFiles/ZED_concurrent_detections.dir/src/GLViewer.cpp.i
-.PHONY : src/GLViewer.cpp.i
-
-src/GLViewer.s: src/GLViewer.cpp.s
-
-.PHONY : src/GLViewer.s
-
-# target to generate assembly for a file
-src/GLViewer.cpp.s:
-	$(MAKE) -f CMakeFiles/ZED_concurrent_detections.dir/build.make CMakeFiles/ZED_concurrent_detections.dir/src/GLViewer.cpp.s
-.PHONY : src/GLViewer.cpp.s
-
 src/TrackingViewer.o: src/TrackingViewer.cpp.o
 
 .PHONY : src/TrackingViewer.o
@@ -213,9 +186,6 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... ZED_concurrent_detections"
-	@echo "... src/GLViewer.o"
-	@echo "... src/GLViewer.i"
-	@echo "... src/GLViewer.s"
 	@echo "... src/TrackingViewer.o"
 	@echo "... src/TrackingViewer.i"
 	@echo "... src/TrackingViewer.s"

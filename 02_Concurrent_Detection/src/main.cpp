@@ -184,7 +184,10 @@ int main(int argc, char **argv)
 
     string window_name = "| ZED x Neousys |";
     cv::namedWindow(window_name, cv::WINDOW_NORMAL); // Create Window
-    cv::resizeWindow(window_name, 2386, 834);
+    cv::setWindowProperty(window_name, cv::WND_PROP_FULLSCREEN, cv::WINDOW_FULLSCREEN);
+
+    // cv::resizeWindow(window_name, 2386, 834);
+
     // cv::createTrackbar("Confidence OD", window_name, &detection_confidence_od, 100);
     // cv::createTrackbar("Confidence Body", window_name, &body_detection_confidence, 100);
 
@@ -247,16 +250,17 @@ int main(int argc, char **argv)
         // gl_viewer_available = viewer.isAvailable();
         //  as image_left_ocv and image_track_ocv are both ref of global_image, no need to update it
         cv::imshow(window_name, global_image);
-        key = cv::waitKey(10);
-        if (key == 'i')
-        {
-            track_view_generator.zoomIn();
-        }
-        else if (key == 'o')
-        {
-            track_view_generator.zoomOut();
-        }
-        else if (key == 'q')
+        key = cv::waitKey(5);
+        // if (key == 'i')
+        // {
+        //     track_view_generator.zoomIn();
+        // }
+        // else if (key == 'o')
+        // {
+        //     track_view_generator.zoomOut();
+        // }
+        
+        if (key == 'q' || key == 27)
         {
             quit = true;
         }

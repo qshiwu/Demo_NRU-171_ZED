@@ -67,7 +67,6 @@ void signalHandler(int signum)
 int main(int argc, char **argv)
 {
 
-
 #ifdef _SL_JETSON_
     const bool isJetson = true;
 #else
@@ -109,10 +108,10 @@ int main(int argc, char **argv)
     body_tracking_parameters.enable_tracking = false;
     body_tracking_parameters.enable_segmentation = false; // designed to give person pixel mask
     body_tracking_parameters.detection_model = BODY_TRACKING_MODEL::HUMAN_BODY_FAST;
-    
+
     // body_tracking_parameters.detection_model = BODY_TRACKING_MODEL::HUMAN_BODY_MEDIUM;
     // body_tracking_parameters.detection_model = BODY_TRACKING_MODEL::HUMAN_BODY_FAST;
-    
+
     body_tracking_parameters.instance_module_id = 0; // select instance ID
 
     returned_state = zed.enableBodyTracking(body_tracking_parameters);
@@ -127,8 +126,9 @@ int main(int argc, char **argv)
     ObjectDetectionParameters object_detection_parameters;
     object_detection_parameters.enable_tracking = true;
     object_detection_parameters.enable_segmentation = true; // designed to give person pixel mask
-    object_detection_parameters.detection_model = OBJECT_DETECTION_MODEL::MULTI_CLASS_BOX_ACCURATE;
-    
+    // object_detection_parameters.detection_model = OBJECT_DETECTION_MODEL::MULTI_CLASS_BOX_ACCURATE;
+    object_detection_parameters.detection_model = OBJECT_DETECTION_MODEL::MULTI_CLASS_BOX_MEDIUM;
+
     object_detection_parameters.instance_module_id = 1; // select instance ID
 
     print("Object Detection: Loading Module...");
@@ -141,9 +141,9 @@ int main(int argc, char **argv)
     }
 
     // Detection runtime parameters
-    int detection_confidence_od = 20;
+    int detection_confidence_od = 60;
     ObjectDetectionRuntimeParameters detection_parameters_rt(detection_confidence_od);
-    
+
     // focus on person
     // To select a set of specific object classes:
     // detection_parameters_rt.object_class_filter = {OBJECT_CLASS::ELECTRONICS, OBJECT_CLASS::SPORT,
@@ -151,22 +151,24 @@ int main(int argc, char **argv)
 
     detection_parameters_rt.object_class_filter = {OBJECT_CLASS::PERSON};
 
-
     // Detection runtime parameters
     // default detection threshold, apply to all object class
     int body_detection_confidence = 60;
     BodyTrackingRuntimeParameters body_tracking_parameters_rt(body_detection_confidence);
-    
 
 #if ENABLE_GUI
 
     float image_aspect_ratio = camera_config.resolution.width / (1.f * camera_config.resolution.height);
     int requested_low_res_w = min(1280, (int)camera_config.resolution.width);
     sl::Resolution display_resolution(requested_low_res_w, requested_low_res_w / image_aspect_ratio);
+    
     Resolution tracks_resolution(1000, display_resolution.height);
+    // Resolution tracks_resolution(800, display_resolution.height);
+
     // create a global image to store both image and tracks view
-    printf(">> %ld, %ld << \n", display_resolution.height, display_resolution.width + tracks_resolution.width );
+    
     cv::Mat global_image(display_resolution.height, display_resolution.width + tracks_resolution.width, CV_8UC4, 1);
+    printf(">> %ld, %ld << \n", display_resolution.height, display_resolution.width + tracks_resolution.width);
     // retrieve ref on image part
     auto image_left_ocv = global_image(cv::Rect(0, 0, display_resolution.width, display_resolution.height));
     // retrieve ref on tracks view part
@@ -182,6 +184,7 @@ int main(int argc, char **argv)
 
     string window_name = "| ZED x Neousys |";
     cv::namedWindow(window_name, cv::WINDOW_NORMAL); // Create Window
+    cv::resizeWindow(window_name, 2386, 834);
     // cv::createTrackbar("Confidence OD", window_name, &detection_confidence_od, 100);
     // cv::createTrackbar("Confidence Body", window_name, &body_detection_confidence, 100);
 

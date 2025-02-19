@@ -179,6 +179,8 @@ int main(int argc, char **argv)
     // retrieve ref on tracks view part
     // auto image_track_ocv = global_image(cv::Rect(display_resolution.width, 0, tracks_resolution.width, tracks_resolution.height));
     int padding = 24;
+
+    
     auto image_track_ocv = global_image(cv::Rect(display_resolution.width - tracks_resolution.width - padding,
                                                  display_resolution.height - tracks_resolution.height - padding,
                                                  tracks_resolution.width,
@@ -186,6 +188,7 @@ int main(int argc, char **argv)
 
     // init an sl::Mat from the ocv image ref (which is in fact the memory of global_image)
     cv::Mat image_render_left = cv::Mat(display_resolution.height, display_resolution.width, CV_8UC4, 1);
+
     Mat image_left(display_resolution, MAT_TYPE::U8_C4, image_render_left.data, image_render_left.step);
     sl::float2 img_scale(display_resolution.width / (float)camera_config.resolution.width, display_resolution.height / (float)camera_config.resolution.height);
 

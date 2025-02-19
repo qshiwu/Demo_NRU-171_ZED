@@ -102,25 +102,25 @@ int main(int argc, char **argv)
     // positional_tracking_parameters.set_as_static = true;
     zed.enablePositionalTracking(positional_tracking_parameters);
 
-    print("Skeleton Detection: Loading Module...");
+    // print("Skeleton Detection: Loading Module...");
     // Define the Objects detection module parameters
-    BodyTrackingParameters body_tracking_parameters;
-    body_tracking_parameters.enable_tracking = false;
-    body_tracking_parameters.enable_segmentation = false; // designed to give person pixel mask
-    body_tracking_parameters.detection_model = BODY_TRACKING_MODEL::HUMAN_BODY_FAST;
+    // BodyTrackingParameters body_tracking_parameters;
+    // body_tracking_parameters.enable_tracking = false;
+    // body_tracking_parameters.enable_segmentation = false; // designed to give person pixel mask
+    // body_tracking_parameters.detection_model = BODY_TRACKING_MODEL::HUMAN_BODY_FAST;
 
     // body_tracking_parameters.detection_model = BODY_TRACKING_MODEL::HUMAN_BODY_MEDIUM;
     // body_tracking_parameters.detection_model = BODY_TRACKING_MODEL::HUMAN_BODY_FAST;
 
-    body_tracking_parameters.instance_module_id = 0; // select instance ID
+    // body_tracking_parameters.instance_module_id = 0; // select instance ID
 
-    returned_state = zed.enableBodyTracking(body_tracking_parameters);
-    if (returned_state != ERROR_CODE::SUCCESS)
-    {
-        print("enableBodyTracking", returned_state, "\nExit program.");
-        zed.close();
-        return EXIT_FAILURE;
-    }
+    // returned_state = zed.enableBodyTracking(body_tracking_parameters);
+    // if (returned_state != ERROR_CODE::SUCCESS)
+    // {
+    //     print("enableBodyTracking", returned_state, "\nExit program.");
+    //     zed.close();
+    //     return EXIT_FAILURE;
+    // }
 
     // Object model
     ObjectDetectionParameters object_detection_parameters;
@@ -171,6 +171,7 @@ int main(int argc, char **argv)
     printf(">> %ld, %ld << \n", display_resolution.height, display_resolution.width + tracks_resolution.width);
     // retrieve ref on image part
     auto image_left_ocv = global_image(cv::Rect(0, 0, display_resolution.width, display_resolution.height));
+    
     // retrieve ref on tracks view part
     auto image_track_ocv = global_image(cv::Rect(display_resolution.width, 0, tracks_resolution.width, tracks_resolution.height));
     // init an sl::Mat from the ocv image ref (which is in fact the memory of global_image)
@@ -216,7 +217,7 @@ int main(int argc, char **argv)
     Pose cam_w_pose;
     cam_w_pose.pose_data.setIdentity();
     Objects objects;
-    Bodies skeletons;
+    // Bodies skeletons;
 
     // bool gl_viewer_available = true;
     while (
@@ -232,15 +233,15 @@ int main(int argc, char **argv)
             detection_parameters_rt.detection_confidence_threshold = detection_confidence_od;
             returned_state = zed.retrieveObjects(objects, detection_parameters_rt, object_detection_parameters.instance_module_id);
 
-            body_tracking_parameters_rt.detection_confidence_threshold = body_detection_confidence;
-            returned_state = zed.retrieveBodies(skeletons, body_tracking_parameters_rt, body_tracking_parameters.instance_module_id);
+            // body_tracking_parameters_rt.detection_confidence_threshold = body_detection_confidence;
+            // returned_state = zed.retrieveBodies(skeletons, body_tracking_parameters_rt, body_tracking_parameters.instance_module_id);
 
 #if ENABLE_GUI
             zed.retrieveImage(image_left, VIEW::LEFT, MEM::CPU, display_resolution);
             zed.retrieveMeasure(point_cloud, MEASURE::XYZRGBA, MEM::GPU, pc_resolution);
             image_render_left.copyTo(image_left_ocv);
             // render_2D(image_left_ocv, img_scale, objects, skeletons, true, body_tracking_parameters.enable_tracking);
-            render_2D_Obj(image_left_ocv, img_scale, objects, true, body_tracking_parameters.enable_tracking);
+            render_2D_Obj(image_left_ocv, img_scale, objects, true, object_detection_parameters.enable_tracking);
 
             zed.getPosition(cam_w_pose, REFERENCE_FRAME::WORLD);
             // viewer.updateData(point_cloud, objects, skeletons, cam_w_pose.pose_data);

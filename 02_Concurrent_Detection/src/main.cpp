@@ -194,8 +194,8 @@ int main(int argc, char **argv)
     track_view_generator.setCameraCalibration(camera_config.calibration_parameters);
 
     string window_name = "| Stereolabs x Neousys |";
-    // cv::namedWindow(window_name, cv::WINDOW_NORMAL); // Create Window
-    cv::namedWindow(window_name, cv::WINDOW_FULLSCREEN); // Create Window
+    cv::namedWindow(window_name, cv::WINDOW_NORMAL); // Create Window
+    // cv::namedWindow(window_name, cv::WINDOW_FULLSCREEN); // Create Window
     cv::setWindowProperty(window_name, cv::WND_PROP_FULLSCREEN, cv::WINDOW_FULLSCREEN);
 
     // Get screen resolution (Platform-specific method)
@@ -203,10 +203,7 @@ int main(int argc, char **argv)
     // int screenHeight = 1080;
 
     // // Set window width to max
-    // cv::resizeWindow(window_name, screenWidth, screenHeight);
-
-    // cv::resizeWindow(window_name, 2386, 834);
-
+    
     // cv::createTrackbar("Confidence OD", window_name, &detection_confidence_od, 100);
     // cv::createTrackbar("Confidence Body", window_name, &body_detection_confidence, 100);
 

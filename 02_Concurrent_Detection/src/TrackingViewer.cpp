@@ -103,9 +103,17 @@ void render_2D_Obj(cv::Mat &left_display, sl::float2 img_scale, sl::Objects &obj
         if (canRender(obj.tracking_state, isTrackingON))
             draw(obj.bounding_box_2d, obj.mask, obj.position.z, obj.id, obj.label, left_display, overlay, img_scale);
     }
-    
+
     // Here, overlay is as the left image, but with opaque masks on each detected objects
     cv::addWeighted(left_display, 0.7, overlay, 0.3, 0.0, left_display);
+
+
+    // ------------- Add Extra Text //
+    // Add extra title
+    // Define the text to display
+    cv::putText(left_display, "Neousys NRU-171V-AWP Live Demo", cv::Point(30, 70), cv::FONT_HERSHEY_SIMPLEX, 1.3, cv::Scalar(255, 255, 255), 3);
+    cv::putText(left_display, "| With Stereolabs Zed X", cv::Point(30, 120), cv::FONT_HERSHEY_SIMPLEX, 1.0, cv::Scalar(255, 255, 255), 2);
+
 }
 
 
@@ -476,9 +484,13 @@ void TrackingViewer::drawPosition(sl::Objects &objects, cv::Mat &tracking_view, 
 void TrackingViewer::drawScale(cv::Mat &tracking_view)
 {
     int one_meter_horizontal = static_cast<int>(1000.f / x_step + .5f);
-    cv::Point2i st_pt(25, window_height - 50);
-    cv::Point2i end_pt(25 + one_meter_horizontal, window_height - 50);
-    int thickness = 1;
+    // cv::Point2i st_pt(25, window_height - 50);
+    // cv::Point2i end_pt(25 + one_meter_horizontal, window_height - 50);
+
+    cv::Point2i st_pt(15, window_height - 20);
+    cv::Point2i end_pt(15 + one_meter_horizontal, window_height - 20);
+
+    int thickness = 2;
 
     // Scale line
     cv::line(tracking_view, st_pt, end_pt, cv::Scalar(0, 0, 0, 255), thickness);
@@ -488,7 +500,7 @@ void TrackingViewer::drawScale(cv::Mat &tracking_view)
     cv::line(tracking_view, end_pt + cv::Point2i(0, -3), end_pt + cv::Point2i(0, 3), cv::Scalar(0, 0, 0, 255), thickness);
 
     // Scale text
-    cv::putText(tracking_view, "1m", end_pt + cv::Point2i(5, 5), 1, 1.0, cv::Scalar(0, 0, 0, 255), 1);
+    cv::putText(tracking_view, "1m", end_pt + cv::Point2i(5, 5), 1, 2.0, cv::Scalar(0, 0, 0, 255), 2);
 }
 
 void TrackingViewer::generateBackground()

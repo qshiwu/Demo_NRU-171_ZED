@@ -161,19 +161,28 @@ int main(int argc, char **argv)
     float image_aspect_ratio = camera_config.resolution.width / (1.f * camera_config.resolution.height);
     int requested_low_res_w = min(1280, (int)camera_config.resolution.width);
     sl::Resolution display_resolution(requested_low_res_w, requested_low_res_w / image_aspect_ratio);
-    
-    Resolution tracks_resolution(1000, display_resolution.height);
+
+    // Resolution tracks_resolution(1000, display_resolution.height);
+
+    Resolution tracks_resolution(300, 300);
+
     // Resolution tracks_resolution(800, display_resolution.height);
 
     // create a global image to store both image and tracks view
-    
+
     cv::Mat global_image(display_resolution.height, display_resolution.width + tracks_resolution.width, CV_8UC4, 1);
-    printf(">> %ld, %ld << \n", display_resolution.height, display_resolution.width + tracks_resolution.width);
+    // printf(">> %ld, %ld << \n", display_resolution.height, display_resolution.width + tracks_resolution.width);
     // retrieve ref on image part
     auto image_left_ocv = global_image(cv::Rect(0, 0, display_resolution.width, display_resolution.height));
-    
+
     // retrieve ref on tracks view part
-    auto image_track_ocv = global_image(cv::Rect(display_resolution.width, 0, tracks_resolution.width, tracks_resolution.height));
+    // auto image_track_ocv = global_image(cv::Rect(display_resolution.width, 0, tracks_resolution.width, tracks_resolution.height));
+    int padding = 24;
+    auto image_track_ocv = global_image(cv::Rect(display_resolution.width - tracks_resolution.width - padding,
+                                                 display_resolution.height - tracks_resolution.height - padding,
+                                                 tracks_resolution.width,
+                                                 tracks_resolution.height));
+
     // init an sl::Mat from the ocv image ref (which is in fact the memory of global_image)
     cv::Mat image_render_left = cv::Mat(display_resolution.height, display_resolution.width, CV_8UC4, 1);
     Mat image_left(display_resolution, MAT_TYPE::U8_C4, image_render_left.data, image_render_left.step);
@@ -187,11 +196,11 @@ int main(int argc, char **argv)
     // cv::namedWindow(window_name, cv::WINDOW_NORMAL); // Create Window
     cv::namedWindow(window_name, cv::WINDOW_FULLSCREEN); // Create Window
     cv::setWindowProperty(window_name, cv::WND_PROP_FULLSCREEN, cv::WINDOW_FULLSCREEN);
-    
+
     // Get screen resolution (Platform-specific method)
     // int screenWidth = 1920; // Example, change accordingly
     // int screenHeight = 1080;
-    
+
     // // Set window width to max
     // cv::resizeWindow(window_name, screenWidth, screenHeight);
 
@@ -259,13 +268,11 @@ int main(int argc, char **argv)
         // gl_viewer_available = viewer.isAvailable();
         //  as image_left_ocv and image_track_ocv are both ref of global_image, no need to update it
         cv::imshow(window_name, global_image);
-        cv::resizeWindow(window_name, 800, 600);
 
+        // Get window width and height
 
-         // Get window width and height
-        
         key = cv::waitKey(5);
-        
+
         // key == 27 means ESC
         if (key == 'q' || key == 27)
         {

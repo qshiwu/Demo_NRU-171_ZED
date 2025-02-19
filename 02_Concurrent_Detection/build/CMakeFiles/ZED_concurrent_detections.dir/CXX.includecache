@@ -28,6 +28,10 @@ opencv2/opencv.hpp
 sl/Camera.hpp
 -
 
+/home/nvidia/Desktop/Demo_NRU-171_ZED/02_Concurrent_Detection/src/TrackingViewer.cpp
+TrackingViewer.hpp
+/home/nvidia/Desktop/Demo_NRU-171_ZED/02_Concurrent_Detection/src/TrackingViewer.hpp
+
 /home/nvidia/Desktop/Demo_NRU-171_ZED/02_Concurrent_Detection/src/main.cpp
 iostream
 -

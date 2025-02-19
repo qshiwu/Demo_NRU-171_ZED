@@ -495,7 +495,7 @@ void TrackingViewer::generateBackground()
 {
     // Draw camera + hotkeys information
     drawCamera();
-    drawHotkeys();
+    // drawHotkeys();
     has_background_ready = true;
 }
 

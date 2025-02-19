@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Demo
+Comment=Demo
+Exec=/home/nvidia/Desktop/Demo_NRU-171_ZED/00_run.sh
+Icon=/home/nvidia/Desktop/Demo_NRU-171_ZED/Demo.png
+Terminal=true
+Type=Application
+StartupNotify=true
+NoDisplay=false

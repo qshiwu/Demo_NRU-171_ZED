@@ -115,7 +115,7 @@ void render_2D_Obj(cv::Mat &left_display, sl::float2 img_scale, sl::Objects &obj
     cv::rectangle(overlay02, cv::Point(0, 22), cv::Point(830, 146), cv::Scalar(21, 9, 202), cv::FILLED);
     cv::addWeighted(left_display, 0.3, overlay02, 0.7, 0.0, left_display);
 
-    cv::putText(left_display, "Neousys NRU-171V-AWP Live Demo", cv::Point(30, 70), cv::FONT_HERSHEY_SIMPLEX, 1.3, cv::Scalar(255, 255, 255), 3);
+    cv::putText(left_display, "Neousys NRU-171V-PPC Live Demo", cv::Point(30, 70), cv::FONT_HERSHEY_SIMPLEX, 1.3, cv::Scalar(255, 255, 255), 3);
     cv::putText(left_display, "| With Stereolabs Zed X", cv::Point(30, 120), cv::FONT_HERSHEY_SIMPLEX, 1.0, cv::Scalar(255, 255, 255), 2);
 
 }

@@ -28,23 +28,9 @@ opencv2/opencv.hpp
 sl/Camera.hpp
 -
 
-/home/nvidia/Desktop/Demo_NRU-171_ZED/02_Concurrent_Detection/src/main.cpp
-iostream
--
-fstream
--
-sl/Camera.hpp
--
+/home/nvidia/Desktop/Demo_NRU-171_ZED/02_Concurrent_Detection/src/TrackingViewer.cpp
 TrackingViewer.hpp
 /home/nvidia/Desktop/Demo_NRU-171_ZED/02_Concurrent_Detection/src/TrackingViewer.hpp
-iostream
--
-csignal
--
-cstdlib
--
-unistd.h
--
 
 /usr/include/opencv4/opencv2/calib3d.hpp
 opencv2/core.hpp
